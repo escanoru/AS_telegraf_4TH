@@ -14,8 +14,11 @@ pipeline {
   }
   parameters {
         string(
-		name: 'Target_Host', 
-		description: 'Connector host(s) ip separated by comma where Telegraf will be installed, e.g 15.214.x.x<span style="color:red";>,</span>15.214.x.x,15.214.x.x<span style="color:red">,</span>15.214.x.x'
+		name: 'Master', 
+		description: '<h4>Only 1 master node ip is needed, even if the cluster has multiple masters only provide 1.</h4>'
+		)
+		name: 'Workers', 
+		description: '<h4>Worker nodes ip separated by comma, e.g 15.214.x.x<span style=\"color:red\";>,</span>15.214.x.x,15.214.x.x<span style=\"color:red\">,</span>15.214.x.x</h4>'
 		)
         password(
 		name: 'Host_Password', 
@@ -36,11 +39,6 @@ pipeline {
 		name: 'Database', 
 		defaultValue: 'system_test', 
 		description: 'The data base name where the metrics will be stored'
-		)
-		string(
-		name: 'Connector_Directory', 
-		defaultValue: '/opt/ArcSightSmartConnectors/*', 
-		description: 'The directory where the connector was installed, if multiple connectors are located under the same folder then you can pass the parent folder, for instance'
 		)
     }
 	
@@ -68,7 +66,6 @@ pipeline {
 		    granularity: '${Interval}',
             influxdb_ip: '${InfluxDB}',
             database_name: '${Database}',
-			connector_path: '${Connector_Directory}',
             ansible_password: [value: '${Host_Password}', hidden: true],
         ])
 	  }	
