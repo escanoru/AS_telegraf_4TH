@@ -1,6 +1,7 @@
 def setDescription() { 
   def item = Jenkins.instance.getItemByFullName(env.JOB_NAME) 
-  item.setDescription("<h3>This job installs Telegraf with the required parameters to scrape metrics from a given connector installed on a Linux node.</h3> \n<h3>Dashboard: <a href=\"https://15.214.145.90:8083/d/ls7wQV6Zz/arcsight-smartconnector-metrics-1?orgId=5\">SmartConnector Metrics 1</a></h3> \n<h3>Dashboard: <a href=\"https://15.214.145.90:8083/d/1cNArl6Wk/arcsight-smartconnector-metrics-2?orgId=5\">SmartConnector Metrics 2</a></h3>") 
+  item.setDescription("<h3>This jobs installs Telegraf with the required parameters to scrape metrics from the kafka-manager pod in a given master node, it also scrapes the topic size of the th-cef, th-arcsight-avro and the th-binary_esm topics from the worker nodes</h3> \n
+<h3>Dashboard: <a href=\"https://15.214.145.90:8083/d/H3TCoAjWz/th-kafka-metrics-single-instance-node-metrics?orgId=5&refresh=1m\">TH Kafka Metrics (Single Instance) + Node Metrics</a></h3>") 
   item.save()
   }
 setDescription()
@@ -49,8 +50,9 @@ pipeline {
 	stage('Check inventory.ini') {
       steps {
         sh '''
-		   echo -e "[connectors]\\n" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
-           echo ${Target_Host} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[connectors\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
+		   echo -e "[master]\n\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
+		   echo ${Master} | sed 's/,/\n/g' | while read line ; do sed -i '/\[master\]/a \'"${line}"'' ${WORKSPACE}/inventory.ini ; done
+		   echo ${Workers} | sed 's/,/\n/g' | while read line ; do sed -i '/\[workers\]/a \'"${line}"'' ${WORKSPACE}/inventory.ini ; done 
 		   '''
       }
     }
@@ -75,7 +77,7 @@ pipeline {
     stage('Clean inventory.ini') {
       steps {
         sh '''
-		   echo -e "[connectors]\\n]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
+		   echo -e "[master]\n\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
 		   '''
      }
     }
