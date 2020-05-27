@@ -16,6 +16,7 @@ pipeline {
 		name: 'Master', 
 		description: '<h4>Only 1 master node ip is needed, even if the cluster has multiple masters only provide 1.</h4>'
 		)
+		string(
 		name: 'Workers', 
 		description: '<h4>Worker nodes ip separated by comma, e.g 15.214.x.x<span style=\"color:red\";>,</span>15.214.x.x,15.214.x.x<span style=\"color:red\">,</span>15.214.x.x</h4>'
 		)
