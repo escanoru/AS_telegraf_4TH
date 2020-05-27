@@ -1,0 +1,28 @@
+---
+- hosts: master
+  remote_user: root
+  gather_facts: false
+  tasks:
+  - name: Configuring master.
+    include_role:
+      name: ../telegraf_th_master_and_workers_local
+      tasks_from: main_master
+  
+  vars:
+    interval: "{{ granularity }}"
+    influxdb_ip: "{{ influxdb_ip }}"
+    db: "{{ database_name }}"
+    
+- hosts: workers
+  remote_user: root
+  gather_facts: false
+  tasks:
+  - name: Configuring workers
+    include_role:
+      name: ../telegraf_th_master_and_workers_local
+      tasks_from: main_workers
+  
+  vars:
+    interval: "{{ granularity }}"
+    influxdb_ip: "{{ influxdb_ip }}"
+    db: "{{ database_name }}"

@@ -1,0 +1,3 @@
+---
+- name: Enabling Telegraf
+  service: name=telegraf enabled=yes

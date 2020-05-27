@@ -1,0 +1,3 @@
+---
+- include: telegraf_enable.yml
+- include: telegraf_restart.yml

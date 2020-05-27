@@ -1,0 +1,9 @@
+---
+- name: "Running task on Workers, Copying telegraf.conf"
+  template: src=telegraf_th_cluster_workers.conf dest=/etc/telegraf/telegraf.conf owner=telegraf group=telegraf mode=0775 backup=yes
+
+- name: "Running task on Workers, Copying th-kafka-manager-metrics.sh"
+  copy: src=kafka_topic_size.sh dest=/opt/kafka_topic_size.sh owner=telegraf group=telegraf mode=0775 backup=yes
+  notify: 
+  - Restarting Telegraf
+  - Enabling Telegraf  

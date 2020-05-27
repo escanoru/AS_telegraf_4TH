@@ -1,0 +1,5 @@
+---
+- name: "Transferring Telegraf RPM"
+  copy: src="{{ item }}" dest=/tmp/ansible_temp_files/
+  with_fileglob:
+    - telegraf-*

@@ -1,0 +1,54 @@
+---
+- hosts: master
+  remote_user: root
+  gather_facts: false
+  tasks:
+  - name: Configuring master.
+    include_role:
+      name: ../telegraf_th-v3.2_master_and_workers_local
+      tasks_from: main_master
+  
+  vars:
+    interval: "{{ granularity }}"
+    influxdb_ip: "{{ influxdb_ip }}"
+    db: "{{ database_name }}"
+    
+  vars_prompt:
+  - name: granularity
+    prompt: "Scrape metrics interval"
+    private: no  
+      
+  - name: influxdb_ip
+    prompt: "Please provide the Influxdb ip"
+    private: no
+    
+  - name: database_name
+    prompt: "Please provide the Influxdb database name where the metrics will be stored"
+    private: no
+    
+- hosts: workers
+  remote_user: root
+  gather_facts: false
+  tasks:
+  - name: Configuring workers
+    include_role:
+      name: ../telegraf_th-v3.2_master_and_workers_local
+      tasks_from: main_workers
+  
+  vars:
+    interval: "{{ granularity }}"
+    influxdb_ip: "{{ influxdb_ip }}"
+    db: "{{ database_name }}"
+
+  vars_prompt:
+  - name: granularity
+    prompt: "Scrape metrics interval"
+    private: no  
+      
+  - name: influxdb_ip
+    prompt: "Please provide the Influxdb ip"
+    private: no
+    
+  - name: database_name
+    prompt: "Please provide the Influxdb database name where the metrics will be stored"
+    private: no    
