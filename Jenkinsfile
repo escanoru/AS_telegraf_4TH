@@ -57,7 +57,7 @@ pipeline {
       }
     }
 
-    stage('Ansible Role') {
+    stage('Running Ansible Role') {
       steps {
         ansiblePlaybook(
         playbook: '${WORKSPACE}/main_for_jenkins.yml',
