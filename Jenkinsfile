@@ -71,7 +71,7 @@ pipeline {
 	  }	
     }		
 		
-    stage('Cleaning inventory File') {
+    stage('Clean inventory File') {
       steps {
         sh '''
 		   echo -e "[master]\n\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
