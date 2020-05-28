@@ -5,7 +5,7 @@
   tasks:
   - name: Configuring master.
     include_role:
-      name: ../telegraf_th_master_and_workers_local
+      name: ../
       tasks_from: main_master
   
   vars:
@@ -19,7 +19,7 @@
   tasks:
   - name: Configuring workers
     include_role:
-      name: ../telegraf_th_master_and_workers_local
+      name: ../
       tasks_from: main_workers
   
   vars:
