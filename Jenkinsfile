@@ -45,7 +45,7 @@ pipeline {
             	
   stages { 
 
-	stage('Check inventory.ini') {
+	stage('Check Ansible inventory file') {
       steps {
         sh '''
 		   echo -e "[master]\\n\\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
@@ -55,7 +55,7 @@ pipeline {
       }
     }
 
-    stage('Running Ansible Role') {
+    stage('Ansible Role Task') {
       steps {
         ansiblePlaybook(
         playbook: '${WORKSPACE}/main_for_jenkins.yml',
@@ -71,7 +71,7 @@ pipeline {
 	  }	
     }		
 		
-    stage('Clean inventory.ini') {
+    stage('Cleaning inventory File') {
       steps {
         sh '''
 		   echo -e "[master]\n\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
