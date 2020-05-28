@@ -23,7 +23,7 @@ pipeline {
         password(
 		name: 'Host_Password', 
 		defaultValue: 'arst@dm1n', 
-		description: 'Node password where telegraf will be installed'
+		description: '<h4>Host root's password. The default password is <span style=\"color:red\">arst@dm1n</span>, you can change it by clicking on \"Change Password\".</h4>'
 		)
         string(
 		name: 'Interval', 
