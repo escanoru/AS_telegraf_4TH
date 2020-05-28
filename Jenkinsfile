@@ -18,7 +18,7 @@ pipeline {
 		)
 		string(
 		name: 'Workers', 
-		description: '<h4>Worker nodes ip separated by comma, e.g 15.214.x.x<span style=\"color:red\";>,</span>15.214.x.x,15.214.x.x<span style=\"color:red\">,</span>15.214.x.x</h4>'
+		description: '<h4>Worker nodes ip separated by comma, e.g 15.214.x.x<span style=\"color:red\";>,</span>15.214.x.x, 15.214.x.x<span style=\"color:red\">, </span>15.214.x.x</h4>'
 		)
         password(
 		name: 'Host_Password', 
