@@ -49,7 +49,6 @@ pipeline {
       steps {
         sh '''
 		   echo -e "[master]\\n\\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
-		   echo ${Master} | sed 's/,/\n/g' | while read line ; do sed -i '/\[master\]/a \'"${line}"'' ${WORKSPACE}/inventory.ini ; done
 		   echo ${Master} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[master\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
 		   echo ${Workers} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[workers\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
 		   '''
