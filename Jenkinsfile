@@ -33,7 +33,7 @@ pipeline {
         string(
 		name: 'InfluxDB', 
 		defaultValue: '15.214.128.179', 
-		description: '<h4>The InfluxDB server ip/hostname where the metrics will be sent. \nIf you don't have an InfluxDB instance you can use <span style=\"color:red\">15.214.128.179</span> with the database name <span style=\"color:red\">system_test</span></h4>'
+		description: '<h4>The InfluxDB server ip/hostname where the metrics will be sent. \nIf you don\'t have an InfluxDB instance you can use <span style=\"color:red\">15.214.128.179</span> with the database name <span style=\"color:red\">system_test</span></h4>'
 		)
         string(
 		name: 'Database', 
