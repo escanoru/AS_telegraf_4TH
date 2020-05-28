@@ -45,7 +45,7 @@ pipeline {
             	
   stages { 
 
-	stage('Check Ansible inventory file') {
+	stage('Check Ansible Inventory File') {
       steps {
         sh '''
 		   echo -e "[master]\\n\\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
@@ -71,7 +71,7 @@ pipeline {
 	  }	
     }		
 		
-    stage('Clean inventory File') {
+    stage('Clean Inventory File') {
       steps {
         sh '''
 		   echo -e "[master]\n\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
