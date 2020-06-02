@@ -6,11 +6,13 @@ def setDescription() {
 setDescription()
 
 pipeline {
-  agent any
-  options {
-    ansiColor('gnome-terminal')
-	buildDiscarder(logRotator(daysToKeepStr: '180'))
-  }
+	// agent any
+	agent { label 'ansible' }
+	options {
+		ansiColor('gnome-terminal')
+		buildDiscarder(logRotator(daysToKeepStr: '180'))
+		}
+  
   parameters {
         string(
 		name: 'Master', 
