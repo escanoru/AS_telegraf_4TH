@@ -42,6 +42,16 @@ pipeline {
 		defaultValue: 'system_test', 
 		description: '<h4>The data base name where the metrics will be stored. \nIf you don\'t have an InfluxDB instance you can use <span style=\"color:red\">15.214.128.179</span> with the database name <span style=\"color:red\">system_test</span></h4>'
 		)
+		string(
+		name: 'Username', 
+		defaultValue: '', 
+		description: '<h4>The influxDB username to authenticate before sending metrics to InfluxDB, leave empty if this wasn\'t setup on your influxDB instance</h4>'
+		)
+		password(
+		name: 'Username_Password', 
+		defaultValue: '', 
+		description: '<h4>The influxDB username\'s password to authenticate before sending metrics to InfluxDB, leave empty if this wasn\'t setup on your influxDB instance</h4>'
+		)		
     }
 	
             	
@@ -69,6 +79,8 @@ pipeline {
             influxdb_ip: '${InfluxDB}',
             database_name: '${Database}',
             ansible_password: [value: '${Host_Password}', hidden: true],
+			db_username: '${Username}',
+			db_username_pass: '${Username_Password}'			
         ])
 	  }	
     }		

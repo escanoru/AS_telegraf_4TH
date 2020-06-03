@@ -9,9 +9,11 @@
       tasks_from: main_master
   
   vars:
-    interval: "{{ granularity }}"
+    interval: "{{ interval }}"
     influxdb_ip: "{{ influxdb_ip }}"
     db: "{{ database_name }}"
+    db_username: "{{ db_username | default('') }}"
+    db_username_pass: "{{ db_username_pass | default('') }}"    
     
 - hosts: workers
   remote_user: root
@@ -23,6 +25,8 @@
       tasks_from: main_workers
   
   vars:
-    interval: "{{ granularity }}"
+    interval: "{{ interval }}"
     influxdb_ip: "{{ influxdb_ip }}"
     db: "{{ database_name }}"
+    db_username: "{{ db_username | default('') }}"
+    db_username_pass: "{{ db_username_pass | default('') }}"    
