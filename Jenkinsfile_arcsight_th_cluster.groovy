@@ -73,7 +73,7 @@ pipeline {
         playbook: '${WORKSPACE}/main_for_jenkins.yml',
         inventory: '${WORKSPACE}/inventory.ini',
         colorized: true,
-		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no"',
+		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"',
         extraVars: [
 		    interval: '${Interval}',
             influxdb_ip: '${InfluxDB}',
