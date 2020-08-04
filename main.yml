@@ -5,16 +5,16 @@
   tasks:
   - name: Configuring master.
     include_role:
-      name: ../telegraf_th-v3.2_master_and_workers_local
+      name: ../telegraf_ansible_arcsight_th_cluster
       tasks_from: main_master
   
   vars:
-    interval: "{{ granularity }}"
+    interval: "{{ interval }}"
     influxdb_ip: "{{ influxdb_ip }}"
     db: "{{ database_name }}"
     
   vars_prompt:
-  - name: granularity
+  - name: interval
     prompt: "Scrape metrics interval"
     private: no  
       
@@ -36,12 +36,12 @@
       tasks_from: main_workers
   
   vars:
-    interval: "{{ granularity }}"
+    interval: "{{ interval }}"
     influxdb_ip: "{{ influxdb_ip }}"
     db: "{{ database_name }}"
 
   vars_prompt:
-  - name: granularity
+  - name: interval
     prompt: "Scrape metrics interval"
     private: no  
       
