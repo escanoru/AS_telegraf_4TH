@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 #Arcsight System-Test method to scrape kafka manager metrics from TH.
 
