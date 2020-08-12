@@ -12,7 +12,8 @@
   copy: 
     src: kafka-manager-metrics.sh
     dest: /opt/kafka-manager-metrics.sh 
-    owner: telegraf group=telegraf 
+    owner: telegraf 
+    group: telegraf 
     mode: 0775 
     backup: yes
 
