@@ -70,7 +70,7 @@ pipeline {
     stage('Ansible Role Task') {
       steps {
         ansiblePlaybook(
-        playbook: '${WORKSPACE}/main_for_jenkins.yml',
+        playbook: '${WORKSPACE}/th_cluster_main_for_jenkins.yml',
         inventory: '${WORKSPACE}/inventory.ini',
         colorized: true,
 		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"',

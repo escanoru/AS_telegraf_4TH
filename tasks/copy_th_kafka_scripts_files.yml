@@ -8,10 +8,10 @@
     mode: 0775 
     backup: yes
 
-- name: "Running task on Master...Copying th-kafka-manager-metrics.sh"
+- name: "Running task on Master...Copying kafka-manager-metrics.sh"
   copy: 
     src: th-kafka-manager-metrics.sh 
-    dest: /opt/th-kafka-manager-metrics.sh 
+    dest: /opt/kafka-manager-metrics.sh 
     owner: telegraf group=telegraf 
     mode: 0775 
     backup: yes

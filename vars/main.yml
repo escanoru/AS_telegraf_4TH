@@ -1,1 +1,6 @@
 ---
+interval: "{{ interval }}"
+influxdb_ip: "{{ influxdb_ip }}"
+db: "{{ database_name }}"
+db_username: "{{ db_username | default('') }}"
+db_username_pass: "{{ db_username_pass | default('') }}"  

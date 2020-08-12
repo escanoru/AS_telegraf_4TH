@@ -1,0 +1,4 @@
+---
+- name: Reloading the systemd daemon
+  systemd:
+    daemon_reload: yes
