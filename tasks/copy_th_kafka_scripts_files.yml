@@ -10,7 +10,7 @@
 
 - name: "Running task on Master...Copying kafka-manager-metrics.sh"
   copy: 
-    src: th-kafka-manager-metrics.sh 
+    src: kafka-manager-metrics.sh
     dest: /opt/kafka-manager-metrics.sh 
     owner: telegraf group=telegraf 
     mode: 0775 
