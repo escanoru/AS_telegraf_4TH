@@ -3,7 +3,7 @@
 # Method to scrape kafka manager metrics from TH.
 
 # Topic Metrics
-xidel -s --xquery 'for $tr in //tr[position()>=1] return join($tr/td, " ")' "http://127.0.0.1:9001/clusters/transformation-hub/topics" | awk '{gsub(/,/,"",$10); print "exec_Kafka-Manager_Topic_Metrics,attribute=none,Topic="$1" EPS="$9",Offset="$10",Partitions="$2",Brokers_Count="$3",Broker_Skew_%="$5",Brokers_Leader_Skew_%="$6",Under_Replicated_%="$8",Replicas="$7",Brokers_Spread_%="$4}' | tail -n  +3
+xidel -s --xquery 'for $tr in //tr[position()>=1] return join($tr/td, " ")' "http://127.0.0.1:9001/clusters/transformation-hub/topics" | awk '{gsub(/,/,"",$10); print "exec_Kafka_Manager_Topic_Metrics,attribute=none,Topic="$1" EPS="$9",Offset="$10",Partitions="$2",Brokers_Count="$3",Broker_Skew_%="$5",Brokers_Leader_Skew_%="$6",Under_Replicated_%="$8",Replicas="$7",Brokers_Spread_%="$4}' | tail -n  +3
 
 # Topics' Name -> $1
 # Topics'EPS -> $9
