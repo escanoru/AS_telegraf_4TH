@@ -1,6 +1,6 @@
 def setDescription() { 
   def item = Jenkins.instance.getItemByFullName(env.JOB_NAME) 
-  item.setDescription("<h5 style=\"color:#138D75\">This jobs installs Telegraf with the required parameters to scrape metrics from the kafka-manager pod in a given master node, it also scrapes the topic size of the th-cef, th-arcsight-avro and the th-binary_esm topics from the worker nodes.<br>Dashboard: <a href=\"https://15.214.145.90:8083/d/qe7ltXHMz/kafka-metrics?orgId=5&refresh=10s\">TH Kafka Metrics (Single Instance) + Node Metrics</a></h5>") 
+  item.setDescription("<h5 style=\"color:#138D75\">This jobs installs Telegraf with the required parameters to scrape metrics from the kafka-manager pod in a given master node, it also scrapes the topic size of the th-cef, th-arcsight-avro and the th-binary_esm topics from the worker nodes.<br>Dashboard: <a href=\"https://15.214.145.90:8083/d/qe7ltXHMz/kafka-metrics?orgId=5&refresh=10s\">TH Kafka Metrics</a></h5>") 
   item.save()
   }
 setDescription()
