@@ -55,7 +55,7 @@ pipeline {
     }
 	
             	
-  stages { 
+  stages {
 
 	stage('Check Ansible Inventory File') {
       steps {
@@ -85,12 +85,12 @@ pipeline {
 	  }	
     }		
 		
-    stage('Clean Inventory File') {
-      steps {
-        sh '''
-		   echo -e "[master]\n\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
-		   '''
-     }
-    }
   }
+  
+  post {
+	  always {
+		  echo 'Clenning up the workspace'
+		  deleteDir()
+	  }
+	}
 }
