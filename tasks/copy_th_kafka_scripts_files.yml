@@ -35,6 +35,24 @@
     mode: 0775 
     backup: yes
 
+- name: "Running task on Master...Copying th-brokers_metrics.sh"
+  copy: 
+    src: th-brokers_metrics.sh 
+    dest: /opt/th-brokers_metrics.sh 
+    owner: telegraf 
+    group: telegraf 
+    mode: 0775 
+    backup: yes
+
+- name: "Running task on Master...Copying th_kafka_brokers_metrics.json"
+  copy: 
+    src: th_kafka_brokers_metrics.json 
+    dest: /opt/th_kafka_brokers_metrics.json 
+    owner: telegraf
+    group: telegraf 
+    mode: 0775 
+    backup: yes    
+
 - name: "Running task on Master...Copying k8s-podus-resource-usage.sh"
   copy: 
     src: k8s-podus-resource-usage.sh
