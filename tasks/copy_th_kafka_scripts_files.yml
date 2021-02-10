@@ -8,14 +8,27 @@
     mode: 0775 
     backup: yes
 
-- name: "Running task on Master...Copying kafka-manager-metrics.sh"
+- name: "Running task on Master...Copying kafka-manager-metrics-3.4.sh"
   copy: 
-    src: kafka-manager-metrics.sh
+    src: kafka-manager-metrics-3.4.sh
     dest: /opt/kafka-manager-metrics.sh 
     owner: telegraf 
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+    th_version == "3.4"
+
+- name: "Running task on Master...Copying kafka-manager-metrics-3.5.sh"
+  copy: 
+    src: kafka-manager-metrics-3.5.sh
+    dest: /opt/kafka-manager-metrics.sh 
+    owner: telegraf 
+    group: telegraf 
+    mode: 0775 
+    backup: yes
+  when:
+    th_version == "3.5"
 
 - name: "Running task on Master...Copying th-rsp-metrics-request.sh"
   copy: 
