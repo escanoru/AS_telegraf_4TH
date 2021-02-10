@@ -80,7 +80,8 @@ pipeline {
         colorized: true,
 		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"',
         extraVars: [
-		    interval: '${Interval}',
+		    th_version: '${TH_Version}',
+			interval: '${Interval}',
             influxdb_ip: '${InfluxDB}',
             database_name: '${Database}',
             ansible_password: [value: '${Host_Password}', hidden: true],
