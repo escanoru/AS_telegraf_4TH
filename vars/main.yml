@@ -1,4 +1,5 @@
 ---
+th_version: "{{ th_version }}"
 interval: "{{ interval }}"
 influxdb_ip: "{{ influxdb_ip }}"
 db: "{{ database_name }}"

@@ -13,8 +13,13 @@ pipeline {
 		buildDiscarder(logRotator(daysToKeepStr: '180'))
 		}
   
-  parameters {
-        string(
+        	
+	parameters {
+		choice(
+		    name: 'TH_Version',
+		    choices: ['3.4', '3.5']
+		)
+		string(
 		name: 'Master', 
 		description: '<h5>Only 1 master node ip is needed, even if the cluster has multiple masters only provide 1.</h5>'
 		)
@@ -22,22 +27,22 @@ pipeline {
 		name: 'Workers', 
 		description: '<h5>Worker nodes ip separated by comma, e.g 15.214.x.x<span style=\"color:red\";>, </span>15.214.x.x, 15.214.x.x<span style=\"color:red\">, </span>15.214.x.x</h5>'
 		)
-        password(
+		password(
 		name: 'Host_Password', 
 		defaultValue: 'arst@dm1n', 
 		description: '<h5>Host root\'s password. The default password is <span style=\"color:red\">arst@dm1n</span>, you can change it by clicking on \"Change Password\".</h5>'
 		)
-        string(
+		string(
 		name: 'Interval', 
 		defaultValue: '10', 
 		description: '<h5>How often(in seconds) the metrics will be scrapped, default is 10 seconds.</h5>'
 		)
-        string(
+		string(
 		name: 'InfluxDB', 
 		defaultValue: '15.214.128.179', 
 		description: '<h5>The InfluxDB server ip/hostname where the metrics will be sent. \nIf you don\'t have an InfluxDB instance you can use <span style=\"color:red\">15.214.128.179</span> with the database name <span style=\"color:red\">system_test</span></h5>'
 		)
-        string(
+		string(
 		name: 'Database', 
 		defaultValue: 'system_test', 
 		description: '<h5>The data base name where the metrics will be stored. \nIf you don\'t have an InfluxDB instance you can use <span style=\"color:red\">15.214.128.179</span> with the database name <span style=\"color:red\">system_test</span></h5>'
@@ -52,7 +57,7 @@ pipeline {
 		defaultValue: '', 
 		description: '<h5>The influxDB username\'s password to authenticate before sending metrics to InfluxDB, leave empty if this wasn\'t setup on your influxDB instance</h5>'
 		)		
-    }
+		}
 	
             	
   stages {
