@@ -17,7 +17,7 @@ pipeline {
 	parameters {
 		choice(
 		    name: 'TH_Version',
-		    choices: ['3.4', '3.5']
+		    choices: ['3.5', '3.4']
 		)
 		string(
 		name: 'Master', 
