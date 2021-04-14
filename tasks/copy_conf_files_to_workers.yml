@@ -7,6 +7,8 @@
     group: telegraf
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['workers']      
 
 - name: "Running task on Workers, Copying th-kafka-manager-metrics.sh"
   copy: 
