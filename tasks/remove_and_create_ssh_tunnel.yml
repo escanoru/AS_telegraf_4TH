@@ -29,8 +29,8 @@
 
 - name: "Enabling Telegraf"
   shell: | 
-    systemctl enable telegraf.service  
+    systemctl enable telegraf 
 
 - name: "Restarting Telegraf"
   shell: | 
-    systemctl restart telegraf.service 
+    systemctl restart telegraf
