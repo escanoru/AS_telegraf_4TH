@@ -31,7 +31,7 @@
     private: no
 
   - name: db_username
-    prompt: "Influxdb database name, leave empty if no user is needed"
+    prompt: "Influxdb database username, leave empty if no user is needed"
     private: no 
 
   - name: db_username_pass
