@@ -14,8 +14,8 @@
     private: no
 
   - name: proxyk
-    prompt: "proxy hostnama/ip, e.g http://my_proxy.local:8185"
-    private: no  
+    prompt: "proxy hostnama/ip, e.g http://my_proxy.local:8185, leave empty if no proxy is needed"
+    private: no
 
   - name: interval
     prompt: "Scrape metrics seconds interval"
