@@ -10,5 +10,5 @@
     \cp /etc/yum.conf /etc/yum.conf.original
     sed -i "/^proxy/d" /etc/yum.conf
     echo "proxy={{ proxys }}" >> /etc/yum.conf
-  when:
-    proxy != ""
+  when: 
+    proxyk != ""
