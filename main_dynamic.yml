@@ -13,6 +13,10 @@
     prompt: "TH version, choose 3.4 or 3.5"
     private: no
 
+  - name: proxyk
+    prompt: "proxy hostnama/ip, e.g http://web-proxy.am.softwaregrp.net:8080"
+    private: no  
+
   - name: interval
     prompt: "Scrape metrics seconds interval"
     private: no
