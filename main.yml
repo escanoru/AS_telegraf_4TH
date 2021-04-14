@@ -15,7 +15,7 @@
     
   vars_prompt:
   - name: th_version
-    prompt: "Choose 3.4 or 3.5"
+    prompt: "TH version, choose 3.4 or 3.5"
     private: no
 
   - name: interval
