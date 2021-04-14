@@ -14,6 +14,10 @@
   #   db: "{{ database_name }}"
     
   vars_prompt:
+  - name: th_version
+    prompt: "Choose 3.4 or 3.5"
+    private: no
+
   - name: interval
     prompt: "Scrape metrics interval"
     private: no  
@@ -28,7 +32,7 @@
 
   - name: db_username
     prompt: "Influxdb database name, leave empty if no user is needed"
-    private: no
+    private: no 
 
   - name: db_username_pass
     prompt: "Influxdb database username's password, leave empty if no user is needed"
