@@ -39,6 +39,7 @@ Instructions
 ```sh
 time sudo ansible-playbook -i th_cluster_inventory.ini main.yml
 ```
+5. Provide the info for each prompt
 
 License
 -------
