@@ -27,7 +27,7 @@
   when:
       inventory_hostname in groups['all']    
 
-- name: "enabling Telegraf"
+- name: "Enabling Telegraf"
   shell: | 
     systemctl enable telegraf.service  
 
