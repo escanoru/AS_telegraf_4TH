@@ -14,7 +14,7 @@
     private: no
 
   - name: proxyk
-    prompt: "proxy hostnama/ip, e.g ttp://my_proxy.local:8185"
+    prompt: "proxy hostnama/ip, e.g http://my_proxy.local:8185"
     private: no  
 
   - name: interval
