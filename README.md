@@ -9,12 +9,11 @@ Ansible role to install Telegraf on a TH cluster, both Master and Workers to get
 4. mf-event-avro-esmfiltered
 5. mf-event-avro-enriched
 
-The Grafana dashboard is provided on the "Grafana_Dashboard" folder.
-
 Requirements
 ------------
 1. CentOS-7/RHEL-7
 2. Ansible 2.9.2+
+3. Make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```
 
 Role Variables
 --------------
