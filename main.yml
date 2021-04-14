@@ -2,16 +2,19 @@
 - hosts: master
   remote_user: root
   gather_facts: false
+  vars:
+    th_version: "{{ th_version }}"
+    interval: "{{ interval }}"
+    influxdb_ip: "{{ influxdb_ip }}"
+    database_name: "{{ database_name }}"
+    db_username: "{{ db_username | default('') }}"
+    db_username_pass: "{{ db_username_pass | default('') }}"
+
   tasks:
   - name: Running tasks/main_master.yaml instead of 'main'
     import_role:
       name: ../
       tasks_from: main_master
-  
-  # vars:
-  #   interval: "{{ interval }}"
-  #   influxdb_ip: "{{ influxdb_ip }}"
-  #   db: "{{ database_name }}"
     
   vars_prompt:
   - name: th_version
@@ -41,6 +44,14 @@
 - hosts: workers
   remote_user: root
   gather_facts: false
+  vars:
+    th_version: "{{ th_version }}"
+    interval: "{{ interval }}"
+    influxdb_ip: "{{ influxdb_ip }}"
+    database_name: "{{ database_name }}"
+    db_username: "{{ db_username | default('') }}"
+    db_username_pass: "{{ db_username_pass | default('') }}"
+
   tasks:
   - name: Running tasks/main_workers.yaml instead of 'main'
     import_role:
