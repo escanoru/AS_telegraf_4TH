@@ -4,10 +4,10 @@
   gather_facts: false
   vars:
     th_version: "3.5"
-    proxyk: "http://web-proxy.am.softwaregrp.net:8080"
+    proxyk: "http://my_proxy.local:8185"
     interval: "10"
-    influxdb_ip: "15.214.128.179"
-    database_name: "system_test"
+    influxdb_ip: "127.0.0.1"
+    database_name: "telegraf"
     db_username: ""
     db_username_pass: ""
 
