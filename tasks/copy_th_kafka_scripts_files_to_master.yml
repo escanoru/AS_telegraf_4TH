@@ -7,6 +7,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['master']    
 
 - name: "Running task on Master...Copying kafka-manager-metrics-3.4.sh"
   copy: 
@@ -17,7 +19,7 @@
     mode: 0775 
     backup: yes
   when:
-    th_version == "3.4"
+    th_version == "3.4" and inventory_hostname in groups['master']  
 
 - name: "Running task on Master...Copying kafka-manager-metrics-3.5.sh"
   copy: 
@@ -28,7 +30,7 @@
     mode: 0775 
     backup: yes
   when:
-    th_version == "3.5"
+    th_version == "3.5" and inventory_hostname in groups['master'] 
 
 - name: "Running task on Master...Copying th-rsp-metrics-request.sh"
   copy: 
@@ -38,6 +40,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['master']   
 
 - name: "Running task on Master...Copying th_kafka_rsp_metrics.json"
   copy: 
@@ -47,6 +51,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['master']   
 
 - name: "Running task on Master...Copying th-brokers_metrics.sh"
   copy: 
@@ -56,6 +62,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['master'] 
 
 - name: "Running task on Master...Copying th_kafka_brokers_metrics.json"
   copy: 
@@ -65,6 +73,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes    
+  when:
+      inventory_hostname in groups['master'] 
 
 - name: "Running task on Master...Copying k8s-podus-resource-usage.sh"
   copy: 
@@ -74,6 +84,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['master'] 
 
 - name: "Running task on Workers, Copying th-kafka-manager-metrics.sh"
   copy: 
@@ -83,6 +95,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['master']   
   notify: 
   - Restarting Telegraf
   - Enabling Telegraf
