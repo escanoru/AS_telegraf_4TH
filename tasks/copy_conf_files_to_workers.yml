@@ -4,11 +4,11 @@
     src: telegraf_th_cluster_workers.conf
     dest: /etc/telegraf/telegraf.conf 
     owner: telegraf 
-    group: telegrafs
+    group: telegraf
     mode: 0775 
     backup: yes
   when:
-      inventory_hostname in groups['workers']      
+      inventory_hostname in groups['workers']
 
 # - name: "Running task on Workers, Copying kafka_topic_size.sh"
 #   copy: 
