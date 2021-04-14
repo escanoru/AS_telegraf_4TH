@@ -1,7 +1,0 @@
----
-- include: temp_directory_create.yml
-- include: add_proxy_to_yum.yml
-- include: telegraf_transfer_rpm.yml
-- include: telegraf_install_local.yml
-- include: temp_directory_delete.yml
-- include: copy_conf_files_for_workers.yml
