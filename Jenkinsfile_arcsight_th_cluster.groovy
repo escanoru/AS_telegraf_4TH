@@ -81,6 +81,7 @@ pipeline {
 		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"',
         extraVars: [
 		    th_version: '${TH_Version}',
+			proxyk: 'http://web-proxy.am.softwaregrp.net:8080',
 			interval: '${Interval}',
             influxdb_ip: '${InfluxDB}',
             database_name: '${Database}',
