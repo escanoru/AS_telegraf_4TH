@@ -3,15 +3,15 @@
   remote_user: root
   gather_facts: false
   tasks:
-  - name: Configuring master.
-    include_role:
-      name: ../telegraf_ansible_arcsight_th_cluster
+  - name: Running tasks/main_master.yaml instead of 'main'
+    import_role:
+      name: ../
       tasks_from: main_master
   
-  vars:
-    interval: "{{ interval }}"
-    influxdb_ip: "{{ influxdb_ip }}"
-    db: "{{ database_name }}"
+  # vars:
+  #   interval: "{{ interval }}"
+  #   influxdb_ip: "{{ influxdb_ip }}"
+  #   db: "{{ database_name }}"
     
   vars_prompt:
   - name: interval
@@ -19,36 +19,44 @@
     private: no  
       
   - name: influxdb_ip
-    prompt: "Please provide the Influxdb ip"
+    prompt: "Influxdb ip"
     private: no
     
   - name: database_name
-    prompt: "Please provide the Influxdb database name where the metrics will be stored"
+    prompt: "Influxdb database name where the metrics will be stored"
     private: no
+
+  - name: db_username
+    prompt: "Influxdb database name, leave empty if no user is needed"
+    private: no
+
+  - name: db_username_pass
+    prompt: "Influxdb database username's password, leave empty if no user is needed"
+    private: yes
     
 - hosts: workers
   remote_user: root
   gather_facts: false
   tasks:
-  - name: Configuring workers
-    include_role:
-      name: ../telegraf_th-v3.2_master_and_workers_local
+  - name: Running tasks/main_workers.yaml instead of 'main'
+    import_role:
+      name: ../
       tasks_from: main_workers
   
-  vars:
-    interval: "{{ interval }}"
-    influxdb_ip: "{{ influxdb_ip }}"
-    db: "{{ database_name }}"
+  # vars:
+  #   interval: "{{ interval }}"
+  #   influxdb_ip: "{{ influxdb_ip }}"
+  #   db: "{{ database_name }}"
 
-  vars_prompt:
-  - name: interval
-    prompt: "Scrape metrics interval"
-    private: no  
+  # vars_prompt:
+  # - name: interval
+  #   prompt: "Scrape metrics interval"
+  #   private: no  
       
-  - name: influxdb_ip
-    prompt: "Please provide the Influxdb ip"
-    private: no
+  # - name: influxdb_ip
+  #   prompt: "Please provide the Influxdb ip"
+  #   private: no
     
-  - name: database_name
-    prompt: "Please provide the Influxdb database name where the metrics will be stored"
-    private: no    
+  # - name: database_name
+  #   prompt: "Please provide the Influxdb database name where the metrics will be stored"
+  #   private: no    
