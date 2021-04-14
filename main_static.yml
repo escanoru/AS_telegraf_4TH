@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     th_version: "3.5"
-    proxyk: ""
+    proxyk: "http://web-proxy.am.softwaregrp.net:8080"
     interval: "10"
     influxdb_ip: "15.214.128.179"
     database_name: "system_test"
