@@ -48,13 +48,13 @@
 - hosts: workers
   remote_user: root
   gather_facts: false
-  # vars:
-  #   th_version: "3.5"
-  #   interval: "10"
-  #   influxdb_ip: "15.214.128.179"
-  #   database_name: "system_test"
-  #   db_username: ""
-  #   db_username_pass: ""
+  vars:
+    th_version: "3.5"
+    interval: "10"
+    influxdb_ip: "15.214.128.179"
+    database_name: "system_test"
+    db_username: ""
+    db_username_pass: ""
 
   tasks:
   - name: Running tasks/main_workers.yaml instead of 'main'
