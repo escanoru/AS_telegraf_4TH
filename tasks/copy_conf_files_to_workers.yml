@@ -10,7 +10,7 @@
   when:
       inventory_hostname in groups['workers']      
 
-- name: "Running task on Workers, Copying th-kafka-manager-metrics.sh"
+- name: "Running task on Workers, Copying kafka_topic_size.sh"
   copy: 
     src: kafka_topic_size.sh 
     dest: /opt/kafka_topic_size.sh 
