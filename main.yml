@@ -1,5 +1,5 @@
 ---
-- hosts: master
+- hosts: all
   remote_user: root
   gather_facts: false
   vars:
@@ -11,10 +11,10 @@
     db_username_pass: ""
 
   tasks:
-  - name: Running tasks/main_master.yaml instead of 'main'
+  - name: Running tasks/main_all.yaml instead of 'main'
     import_role:
       name: ../telegraf_ansible_arcsight_th_cluster
-      tasks_from: main_master
+      tasks_from: main_all.yaml
     
   # vars_prompt:
   # - name: th_version
@@ -45,22 +45,22 @@
   #   private: yes
   #   default: ""
     
-- hosts: workers
-  remote_user: root
-  gather_facts: false
-  vars:
-    th_version: "3.5"
-    interval: "10"
-    influxdb_ip: "15.214.128.179"
-    database_name: "system_test"
-    db_username: ""
-    db_username_pass: ""
+# - hosts: workers
+#   remote_user: root
+#   gather_facts: false
+#   vars:
+#     th_version: "3.5"
+#     interval: "10"
+#     influxdb_ip: "15.214.128.179"
+#     database_name: "system_test"
+#     db_username: ""
+#     db_username_pass: ""
 
-  tasks:
-  - name: Running tasks/main_workers.yaml instead of 'main'
-    import_role:
-      name: ../telegraf_ansible_arcsight_th_cluster
-      tasks_from: main_workers
+#   tasks:
+#   - name: Running tasks/main_workers.yaml instead of 'main'
+#     import_role:
+#       name: ../telegraf_ansible_arcsight_th_cluster
+#       tasks_from: main_workers
   
   # vars:
   #   interval: "{{ interval }}"
