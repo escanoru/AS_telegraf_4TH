@@ -2,13 +2,19 @@
 - name: "Running task on Master...Removing previous ssh tunnel connecting to TH (If present)"
   script: remove_tunnel.sh
   register: ignore_me
+  when:
+      inventory_hostname in groups['master'] 
   failed_when: ignore_me.rc != 1 and ignore_me.rc != 0
 
 - name: "Running task on Master...Creating ssh keys for target's localhost, needed for creating the ssh tunnel"
   shell: "yes | ssh-keygen -C localhost -f /root/.ssh/localhost_id_rsa -q -N \"\" ; cat /root/.ssh/localhost_id_rsa.pub  > /root/.ssh/authorized_keys"
+  when:
+      inventory_hostname in groups['master'] 
 
 - name: "Running task on Master...Creating ssh tunel to reach the Kafka manager pod"
   shell: "ssh -i /root/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no -o PasswordAuthentication=no -f -N -L 9001:$(kubectl get services -n $(kubectl get pod --all-namespaces | grep -Eio \"arcsight-installer-([0–9a-z|a-z0-9]+)\" | head -1) th-kafkamgr-svc | awk \'{print $3\":\"$5}\' | grep -Eo \"[0-9.:]+\" | tail -1) root@localhost"
+  when:
+      inventory_hostname in groups['master'] 
   notify: 
   - Restarting Telegraf
   - Enabling Telegraf
