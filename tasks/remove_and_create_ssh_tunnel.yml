@@ -26,6 +26,11 @@
     backup: yes
   when:
       inventory_hostname in groups['all']    
-  notify: 
-  - Restarting Telegraf
-  - Enabling Telegraf  
+
+- name: "enabling Telegraf"
+  shell: | 
+    systemctl enable telegraf.service  
+
+- name: "Restarting Telegraf"
+  shell: | 
+    systemctl restart telegraf.service 
