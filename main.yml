@@ -16,38 +16,46 @@
       name: ../telegraf_ansible_arcsight_th_cluster
       tasks_from: main_master
     
-  vars_prompt:
-  - name: th_version
-    prompt: "TH version, choose 3.4 or 3.5"
-    private: no
+  # vars_prompt:
+  # - name: th_version
+  #   prompt: "TH version, choose 3.4 or 3.5"
+  #   private: no
 
-  - name: interval
-    prompt: "Scrape metrics seconds interval"
-    private: no
-    default: "10"
+  # - name: interval
+  #   prompt: "Scrape metrics seconds interval"
+  #   private: no
+  #   default: "10"
       
-  - name: influxdb_ip
-    prompt: "Influxdb ip"
-    private: no
-    default: "localhost"
+  # - name: influxdb_ip
+  #   prompt: "Influxdb ip"
+  #   private: no
+  #   default: "localhost"
     
-  - name: database_name
-    prompt: "Influxdb database name where the metrics will be stored"
-    private: no
+  # - name: database_name
+  #   prompt: "Influxdb database name where the metrics will be stored"
+  #   private: no
 
-  - name: db_username
-    prompt: "Influxdb database username, leave empty if no user is needed"
-    private: no
-    default: ""
+  # - name: db_username
+  #   prompt: "Influxdb database username, leave empty if no user is needed"
+  #   private: no
+  #   default: ""
 
-  - name: db_username_pass
-    prompt: "Influxdb database username's password, leave empty if no user is needed"
-    private: yes
-    default: ""
+  # - name: db_username_pass
+  #   prompt: "Influxdb database username's password, leave empty if no user is needed"
+  #   private: yes
+  #   default: ""
     
 - hosts: workers
   remote_user: root
   gather_facts: false
+    vars:
+    th_version: "3.5"
+    interval: "10"
+    influxdb_ip: "15.214.128.179"
+    database_name: "system_test"
+    db_username: ""
+    db_username_pass: ""
+    
   tasks:
   - name: Running tasks/main_workers.yaml instead of 'main'
     import_role:
