@@ -1,4 +1,4 @@
-Telegraf TH 3.2 Cluster Kafka Manager Metrics
+Telegraf TH 3.4/3.5 Cluster Kafka Manager Metrics
 =========================================
 Starting on TH 3.2 ports changed from 39XXX to 32XXX, this role takes care of this change.
 
@@ -8,6 +8,8 @@ Ansible role to install Telegraf on a TH cluster, both Master and Workers to get
 1. th-cef
 2. th-arcsight-avro
 3. th-binary_esm
+4. mf-event-avro-esmfiltered
+5. mf-event-avro-enriched
 
 The Grafana dashboard is provided on the "Grafana_Dashboard" folder.
 
