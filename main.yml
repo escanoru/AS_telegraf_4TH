@@ -13,7 +13,7 @@
   tasks:
   - name: Running tasks/main_master.yaml instead of 'main'
     import_role:
-      name: ../
+      name: ../telegraf_ansible_arcsight_th_cluster
       tasks_from: main_master
     
   vars_prompt:
@@ -55,7 +55,7 @@
   tasks:
   - name: Running tasks/main_workers.yaml instead of 'main'
     import_role:
-      name: ../
+      name: ../telegraf_ansible_arcsight_th_cluster
       tasks_from: main_workers
   
   # vars:
