@@ -18,6 +18,8 @@
     group: telegraf 
     mode: 0775 
     backup: yes
+  when:
+      inventory_hostname in groups['all']    
   notify: 
   - Restarting Telegraf
   - Enabling Telegraf  
