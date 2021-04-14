@@ -25,6 +25,7 @@ Two variables are used in this role, the user should fill each variable with its
 4. "database_name"
 5. "db_username"
 6. "db_username_pass"
+6. "proxyk"
 
 Dependencies
 ------------
@@ -33,12 +34,18 @@ None
 Instructions
 ---------------------------
 1. Download this project to your ansible instance
-2. Open the telegraf_th_cluster_kafka_manager_metrics.yml file and fill the "influxdb_ip" and "database_name".
-3. Open the ```th_cluster_inventory.ini``` file and add 1 master(only 1 master is needed) and the workers running on your TH cluster
-4. Run the playbook by running the command below:
+2. Open the ```th_cluster_inventory.ini``` file and add 1 master(only 1 master is needed) and the workers running on your TH cluster
+3. Optional step, oprn ```main_static.yml``` and fill the variables with the apropriate information.
+4. Run the playbook by running the command below 
 ```sh
-time sudo ansible-playbook -i th_cluster_inventory.ini main.yml
+time sudo ansible-playbook -i th_cluster_inventory.ini main_static.yml -k
 ```
+  or run the following to enter the variables values thorugh command prompt:
+
+```sh
+time sudo ansible-playbook -i th_cluster_inventory.ini main_dynamic.yml -k
+```
+
 5. Provide the info for each prompt
 
 License
