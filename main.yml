@@ -19,7 +19,7 @@
     private: no
 
   - name: interval
-    prompt: "Scrape metrics interval"
+    prompt: "Scrape metrics seconds interval"
     private: no  
       
   - name: influxdb_ip
