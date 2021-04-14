@@ -1,0 +1,38 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: false
+  tasks:
+  - name: Running tasks/main_all.yaml instead of 'main'
+    import_role:
+      name: ../telegraf_ansible_arcsight_th_cluster
+      tasks_from: main_all.yaml
+    
+  vars_prompt:
+  - name: th_version
+    prompt: "TH version, choose 3.4 or 3.5"
+    private: no
+
+  - name: interval
+    prompt: "Scrape metrics seconds interval"
+    private: no
+    default: "10"
+      
+  - name: influxdb_ip
+    prompt: "Influxdb ip"
+    private: no
+    default: "127.0.0.1"
+    
+  - name: database_name
+    prompt: "Influxdb database name where the metrics will be stored"
+    private: no
+
+  - name: db_username
+    prompt: "Influxdb database username, leave empty if no user is needed"
+    private: no
+    default: ""
+
+  - name: db_username_pass
+    prompt: "Influxdb database username's password, leave empty if no user is needed"
+    private: yes
+    default: ""
