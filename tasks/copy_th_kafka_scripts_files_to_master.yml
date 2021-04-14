@@ -87,16 +87,16 @@
   when:
       inventory_hostname in groups['master'] 
 
-- name: "Running task on Workers, Copying th-kafka-manager-metrics.sh"
-  copy: 
-    src: kafka_topic_size.sh 
-    dest: /opt/kafka_topic_size.sh 
-    owner: telegraf 
-    group: telegraf 
-    mode: 0775 
-    backup: yes
-  when:
-      inventory_hostname in groups['master']   
-  notify: 
-  - Restarting Telegraf
-  - Enabling Telegraf
+# - name: "Running task on Workers, Copying th-kafka-manager-metrics.sh"
+#   copy: 
+#     src: kafka_topic_size.sh 
+#     dest: /opt/kafka_topic_size.sh 
+#     owner: telegraf 
+#     group: telegraf 
+#     mode: 0775 
+#     backup: yes
+#   when:
+#       inventory_hostname in groups['master']   
+#   notify: 
+#   - Restarting Telegraf
+#   - Enabling Telegraf
