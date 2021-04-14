@@ -23,11 +23,13 @@
 
   - name: interval
     prompt: "Scrape metrics seconds interval"
-    private: no  
+    private: no
+    default: "10"
       
   - name: influxdb_ip
     prompt: "Influxdb ip"
     private: no
+    default: "localhost"
     
   - name: database_name
     prompt: "Influxdb database name where the metrics will be stored"
@@ -35,11 +37,13 @@
 
   - name: db_username
     prompt: "Influxdb database username, leave empty if no user is needed"
-    private: no 
+    private: no
+    default: ""
 
   - name: db_username_pass
     prompt: "Influxdb database username's password, leave empty if no user is needed"
     private: yes
+    default: ""
     
 - hosts: workers
   remote_user: root
