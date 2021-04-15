@@ -3,19 +3,19 @@ Telegraf TH Metriccs
 
 Supported versions: 3.4 and 3.5
 
-Ansible role to install Telegraf and configure the needed scripts on a TH cluster (both Master and Workers) to get metrics from the Kafka Manager, TH API, arcsight NS pod resources(RAM and Milicore). This role will also scrape the size of the following topics on each worker node:
+Ansible role to install Telegraf and configure the needed scripts on a TH cluster (both Master and Workers) to get the metrics from the Kafka Manager, TH API, arcsight NS pod resources(RAM and Milicore). This role will also scrape the size of the following topics on each worker node:
 1. th-cef
 2. th-arcsight-avro
 3. th-binary_esm
 4. mf-event-avro-esmfiltered
 5. mf-event-avro-enriched
 
-This roles includes the telegraf and xidel packages so there is no need to download these packages.
+This roles includes the telegraf and xidel packages so there is no need to download them.
 
 Requirements
 ------------
 1. CentOS-7/RHEL-7
-2. Ansible 2.9.2+ (It might work on Ansible 2.10. but we haven't tested), Once Ansible is installed, make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```, this is necessary if you don't want to distribuite the ssh public key to all your target servers)
+2. Ansible 2.9.2+ (It might work on Ansible 2.10. but we haven't tested), once Ansible is installed, make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```, this is necessary if you don't want to distribuite the ssh public key to all your target servers)
 3. An InfluxDB with a database (created before running this role) where the metrics collected by telegraf will be stored.
 4. A Grafana instance connected to InfluxDB to plot collected metrics.
 
@@ -32,7 +32,7 @@ The following variables are used in this role, the user should fill each variabl
 
 Dependencies
 ------------
-None
+none
 
 Instructions
 ---------------------------
