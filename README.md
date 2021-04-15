@@ -18,7 +18,7 @@ Requirements
 
 Role Variables
 --------------
-7 variables are used in this role, the user should fill each variable with its respective value on the ```main_static.yml``` file (or provide them when using ```main_dynamic.yml```) :
+The following variables are used in this role, the user should fill each variable with its respective value on the ```main_static.yml``` file (or provide them when using ```main_dynamic.yml```) :
 1. "th_version"
 2. "interval"
 3. "influxdb_ip"
