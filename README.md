@@ -12,9 +12,8 @@ Ansible role to install Telegraf on a TH cluster, both Master and Workers to get
 Requirements
 ------------
 1. CentOS-7/RHEL-7
-2. Ansible 2.9.2+
-3. Make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```
-4. An InfluxDB with a database (created before running this role) where the metrics collected by telegraf will be stored.
+2. Ansible 2.9.2+ (Make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```)
+3. An InfluxDB with a database (created before running this role) where the metrics collected by telegraf will be stored.
 
 Role Variables
 --------------
