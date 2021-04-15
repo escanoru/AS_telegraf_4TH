@@ -1,6 +1,5 @@
 Telegraf TH 3.4/3.5 Cluster Kafka Manager Metrics
 =========================================
-Starting on TH 3.2 ports changed from 39XXX to 32XXX, this role takes care of this change.
 
 Ansible role to install Telegraf on a TH cluster, both Master and Workers to get metrics from the Kafka Manager pod running on one of the master nodes; This role will also scrape the size of the following topics on each worker node:
 1. th-cef
