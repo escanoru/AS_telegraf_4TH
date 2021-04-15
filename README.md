@@ -24,7 +24,7 @@ The following variables are used in this role, the user should fill each variabl
 4. "database_name" -> InfluxDB's database
 5. "db_username" -> InfluxDB's username, leave empty if no user is needed.
 6. "db_username_pass" -> InfluxDB's username password, leave empty if no user is needed.
-7. "proxyk"
+7. "proxyk" -> proxy hostnama/ip, e.g http://my_proxy.local:8185, leave empty if no proxy is needed
 
 Dependencies
 ------------
