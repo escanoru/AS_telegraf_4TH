@@ -34,8 +34,8 @@ Instructions
 ---------------------------
 1. Download this project to your ansible instance
 2. Open the ```th_cluster_inventory.ini``` file and add 1 master(only 1 master is needed) and the workers running on your TH cluster
-3. Optional step, oprn ```main_static.yml``` and fill the variables with the apropriate information.
-4. Run the playbook by running the command below 
+3. Optional step, open ```main_static.yml``` and fill the variables with the apropriate information.
+4. Run the playbook by running the command below:
 ```sh
 time sudo ansible-playbook -i th_cluster_inventory.ini main_static.yml -k
 ```
