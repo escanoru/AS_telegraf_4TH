@@ -18,14 +18,14 @@ Requirements
 
 Role Variables
 --------------
-Two variables are used in this role, the user should fill each variable with its respective value:
+7 variables are used in this role, the user should fill each variable with its respective value on the ```main_static.yml``` file (or provide them when using ```main_dynamic.yml```) :
 1. "th_version"
 2. "interval"
 3. "influxdb_ip"
 4. "database_name"
 5. "db_username"
 6. "db_username_pass"
-6. "proxyk"
+7. "proxyk"
 
 Dependencies
 ------------
