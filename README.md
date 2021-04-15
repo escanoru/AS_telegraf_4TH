@@ -1,4 +1,4 @@
-Telegraf TH 3.4/3.5 Cluster Kafka Manager Metrics
+Telegraf TH 3.4/3.5 Cluster Kafka Manager, TH API and K8s PODs Metrics
 =========================================
 
 Ansible role to install Telegraf on a TH cluster (both Master and Workers) to get metrics from the Kafka Manager, TH API, arcsight NS pod resources(RAM and Milicore). This role will also scrape the size of the following topics on each worker node:
