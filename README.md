@@ -18,12 +18,12 @@ Requirements
 Role Variables
 --------------
 The following variables are used in this role, the user should fill each variable with its respective value on the ```main_static.yml``` file (or provide them when using ```main_dynamic.yml```) :
-1. "th_version"
-2. "interval"
-3. "influxdb_ip"
-4. "database_name"
-5. "db_username"
-6. "db_username_pass"
+1. "th_version" - > could be 3.4 ot 3.5
+2. "interval", -> how often telegraf collects the metrics
+3. "influxdb_ip" -> InfluxDB ip
+4. "database_name" -> InfluxDB's database
+5. "db_username" -> InfluxDB's username, leave empty if no user is needed.
+6. "db_username_pass" -> InfluxDB's username password, leave empty if no user is needed.
 7. "proxyk"
 
 Dependencies
