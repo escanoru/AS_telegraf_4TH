@@ -47,8 +47,6 @@ time sudo ansible-playbook -i th_cluster_inventory.ini main_dynamic.yml -k --ssh
 
 The ```--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"``` part is to avoid adding the target's ECDSA key to the ~/.ssh/known_hosts file, this is for testing servers that are constantly getting their OS redeployed.
 
-5. Provide the info for each prompt
-
 License
 -------
 BSD
