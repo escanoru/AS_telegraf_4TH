@@ -13,7 +13,7 @@ Requirements
 1. CentOS-7/RHEL-7
 2. Ansible 2.9.2+, Once Ansible is installed, make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```, this is necessary if you don't want to distribuite the ssh public key to all your target servers)
 3. An InfluxDB with a database (created before running this role) where the metrics collected by telegraf will be stored.
-4. A Grafana connected to InfluxDB to plot collected metrics.
+4. A Grafana instance connected to InfluxDB to plot collected metrics.
 
 Role Variables
 --------------
