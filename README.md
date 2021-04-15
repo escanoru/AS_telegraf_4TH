@@ -14,7 +14,7 @@ Requirements
 1. CentOS-7/RHEL-7
 2. Ansible 2.9.2+
 3. Make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```
-4. An InfluxDB with its respective database where the metrics collected by telegraf will be stored.
+4. An InfluxDB with a database (created before running this role) where the metrics collected by telegraf will be stored.
 
 Role Variables
 --------------
