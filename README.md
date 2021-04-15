@@ -11,8 +11,9 @@ Ansible role to install Telegraf on a TH cluster (both Master and Workers) to ge
 Requirements
 ------------
 1. CentOS-7/RHEL-7
-2. Ansible 2.9.2+ (Make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```)
+2. Ansible 2.9.2+, Once Ansible is installed, make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```, this is necessary if you don't want to distribuite the ssh public key to all your target servers)
 3. An InfluxDB with a database (created before running this role) where the metrics collected by telegraf will be stored.
+4. A Grafana connected to InfluxDB to plot collected metrics.
 
 Role Variables
 --------------
@@ -36,13 +37,15 @@ Instructions
 3. Open the ```main_static.yml``` file and fill the variables with the apropriate information.
 4. Run the playbook by running the command below:
 ```sh
-time sudo ansible-playbook -i th_cluster_inventory.ini main_static.yml -k
+time sudo ansible-playbook -i th_cluster_inventory.ini main_static.yml -k --ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 ```
-  Alternatively you can run the following to enter the variables values through command prompt:
+  Alternatively, you can run the following command to enter the variables values through command prompt:
 
 ```sh
-time sudo ansible-playbook -i th_cluster_inventory.ini main_dynamic.yml -k
+time sudo ansible-playbook -i th_cluster_inventory.ini main_dynamic.yml -k --ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 ```
+
+The ```--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"``` part is to avoid adding the target's ECDSA key to the ~/.ssh/known_hosts file, this is for testing servers that are constantly getting their OS redeployed.
 
 5. Provide the info for each prompt
 
