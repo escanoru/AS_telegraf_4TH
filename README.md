@@ -8,6 +8,8 @@ Ansible role to install Telegraf and configure the needed scripts on a TH cluste
 4. mf-event-avro-esmfiltered
 5. mf-event-avro-enriched
 
+This roles includes the telegraf and xidel packages so there is no need to download these packages.
+
 Requirements
 ------------
 1. CentOS-7/RHEL-7
