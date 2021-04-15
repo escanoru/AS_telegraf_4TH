@@ -14,6 +14,7 @@ Requirements
 1. CentOS-7/RHEL-7
 2. Ansible 2.9.2+
 3. Make sure the parameter ```"host_key_checking = False"``` **is uncomment** on the ```/etc/ansible/ansible.cfg```
+4. An InfluxDB with its respective database where the metrics collected by telegraf will be stored.
 
 Role Variables
 --------------
@@ -34,12 +35,12 @@ Instructions
 ---------------------------
 1. Download this project to your ansible instance
 2. Open the ```th_cluster_inventory.ini``` file and add 1 master(only 1 master is needed) and the workers running on your TH cluster
-3. Optional step, open ```main_static.yml``` and fill the variables with the apropriate information.
+3. Open the ```main_static.yml``` file and fill the variables with the apropriate information.
 4. Run the playbook by running the command below:
 ```sh
 time sudo ansible-playbook -i th_cluster_inventory.ini main_static.yml -k
 ```
-  or run the following to enter the variables values thorugh command prompt:
+  Alternatively you can run the following to enter the variables values through command prompt:
 
 ```sh
 time sudo ansible-playbook -i th_cluster_inventory.ini main_dynamic.yml -k
