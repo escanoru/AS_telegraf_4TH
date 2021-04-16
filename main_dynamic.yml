@@ -5,7 +5,7 @@
   tasks:
   - name: Running tasks/main_all.yaml instead of 'main'
     import_role:
-      name: ../telegraf_ansible_arcsight_th_cluster
+      name: ../
       tasks_from: main_all.yaml
     
   vars_prompt:
