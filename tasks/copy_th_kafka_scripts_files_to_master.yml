@@ -85,4 +85,15 @@
     mode: 0775 
     backup: yes
   when:
-      inventory_hostname in groups['master'] 
+      inventory_hostname in groups['master']
+
+- name: "Running task on Master...Copying k8s_get_pod.sh"
+  copy: 
+    src: k8s_get_pod.sh
+    dest: /opt/k8s_get_pod.sh
+    owner: telegraf
+    group: telegraf 
+    mode: 0775 
+    backup: yes
+  when:
+      inventory_hostname in groups['master']       
