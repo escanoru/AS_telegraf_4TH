@@ -51,7 +51,7 @@ pipeline {
                             string(name: 'Master', value: '15.214.141.246'),
                             string(name: 'Workers', value: '15.214.141.212,15.214.141.213,15.214.141.214'),
                             string(name: 'InfluxDB', value: '15.214.137.76'),
-                            string(name: 'Database	', value: 'reconMetrics')
+                            string(name: 'Database', value: 'reconMetrics')
 						]
             }
         }
@@ -69,7 +69,7 @@ pipeline {
                             string(name: 'Master', value: '15.214.141.201'),
                             string(name: 'Workers', value: '15.214.141.202,15.214.141.204,15.214.141.205'),
                             string(name: 'InfluxDB', value: '15.214.137.76'),
-                            string(name: 'Database	', value: 'reconMetrics')
+                            string(name: 'Database', value: 'reconMetrics')
 						]
             }
         }
