@@ -1,6 +1,6 @@
 def setDescription() {
     def item = Jenkins.instance.getItemByFullName(env.JOB_NAME)
-    item.setDescription("<h5><span style=\"color:#138D75\">Testing arcsight installer</span></h5>")
+    item.setDescription("<h5><span style=\"color:#138D75\">This jobs calls the ST_Telegraf_Arcsight_TH_Cluster job to automatically install telegraf on the integration envrinments</span></h5>")
     item.save()
 }
 setDescription()
