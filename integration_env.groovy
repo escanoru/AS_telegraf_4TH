@@ -33,8 +33,8 @@ pipeline {
 
         stage("Sleep for Update") {
 			steps {
-				echo "Sleeping for 35 secs to give me time to get the changes and then stop the job"
-                sleep 35
+				echo "Sleeping for 10 secs to give me time to get the changes and then stop the job"
+                sleep 10
 			}
 		}
 
