@@ -54,7 +54,3 @@ The ```--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/
 License
 -------
 BSD
-
-Author Information
-------------------
-Arcsight System-Test team
