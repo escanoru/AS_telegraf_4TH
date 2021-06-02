@@ -1,0 +1,60 @@
+---
+- name: "Running task on Master...Copying telegraf.conf"
+  template:
+    src: telegraf_master.conf
+    dest: /etc/telegraf/telegraf.conf
+    owner: telegraf
+    group: telegraf
+    mode: 0775
+    backup: yes
+  when: inventory_hostname in groups['master']
+
+# - name: "Running task on Master...Copying th-rsp-metrics-request.sh"
+#   copy:
+#     src: th-rsp-metrics-request.sh
+#     dest: /opt/th-rsp-metrics-request.sh
+#     owner: telegraf
+#     group: telegraf
+#     mode: 0775
+#     backup: yes
+#   when: inventory_hostname in groups['master']
+
+# - name: "Running task on Master...Copying th_kafka_rsp_metrics.json"
+#   copy:
+#     src: th_kafka_rsp_metrics.json
+#     dest: /opt/th_kafka_rsp_metrics.json
+#     owner: telegraf
+#     group: telegraf
+#     mode: 0775
+#     backup: yes
+#   when: inventory_hostname in groups['master']
+
+- name: "Running task on Master...Copying th-brokers_metrics.sh"
+  copy:
+    src: th-brokers_metrics.sh
+    dest: /opt/th-brokers_metrics.sh
+    owner: telegraf
+    group: telegraf
+    mode: 0775
+    backup: yes
+  when: inventory_hostname in groups['master']
+
+- name: "Running task on Master...Copying k8s-podus-resource-usage.sh"
+  copy:
+    src: k8s-podus-resource-usage.sh
+    dest: /opt/k8s-podus-resource-usage.sh
+    owner: telegraf
+    group: telegraf
+    mode: 0775
+    backup: yes
+  when: inventory_hostname in groups['master']
+
+- name: "Running task on Master...Copying k8s_get_pod.sh"
+  copy:
+    src: k8s_get_pod.sh
+    dest: /opt/k8s_get_pod.sh
+    owner: telegraf
+    group: telegraf
+    mode: 0775
+    backup: yes
+  when: inventory_hostname in groups['master']
