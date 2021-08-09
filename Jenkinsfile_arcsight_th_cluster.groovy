@@ -76,19 +76,18 @@ pipeline {
     stage('Ansible Role Task') {
       steps {
         ansiblePlaybook(
-        playbook: '${WORKSPACE}/th_cluster_main_for_jenkins.yml',
-        inventory: '${WORKSPACE}/inventory.ini',
+        playbook: "${env.WORKSPACE}/th_cluster_main_for_jenkins.yml",
+        inventory: "${env.WORKSPACE}/inventory.ini",
         colorized: true,
 		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -v',
         extraVars: [
-		    th_version: '${TH_Version}',
-			proxyk: 'http://web-proxy.am.softwaregrp.net:8080',
-			interval: '${Interval}',
-            influxdb_ip: '${InfluxDB}',
-            database_name: '${Database}',
+		    th_version: "${params.TH_Version}",
+			interval: "${params.Interval}",
+            influxdb_ip: "${params.InfluxDB}",
+            database_name: "${params.Database}",
             ansible_password: [value: '${Host_Password}', hidden: true],
 			db_username: '${Username}',
-			db_username_pass: '${Username_Password}'			
+			db_username_pass: '${Username_Password}'		
         ])
 	  }	
     }		
