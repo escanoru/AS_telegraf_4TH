@@ -3,5 +3,8 @@
   copy:
     src: ../KafkaMgr_Scrapper_golang_code/TH_KAKFA_SCRAPPER
     dest: /opt/TH_SCRAPPER/
+    owner: telegraf 
+    group: telegraf 
+    mode: 0775 
   with_fileglob:
     - telegraf-*
