@@ -10,7 +10,7 @@ pipeline {
 	agent { label 'ansible' }
 	options {
 		ansiColor('gnome-terminal')
-		buildDiscarder(logRotator(daysToKeepStr: '180'))
+		buildDiscarder(logRotator(daysToKeepStr: '30'))
 		}
   
         	
