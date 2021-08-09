@@ -78,7 +78,7 @@ pipeline {
         playbook: '${WORKSPACE}/th_cluster_main_for_jenkins.yml',
         inventory: '${WORKSPACE}/inventory.ini',
         colorized: true,
-		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"',
+		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -v',
         extraVars: [
 		    th_version: '${TH_Version}',
 			proxyk: 'http://web-proxy.am.softwaregrp.net:8080',
