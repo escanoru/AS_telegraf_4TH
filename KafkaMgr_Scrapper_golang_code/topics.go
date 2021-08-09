@@ -46,7 +46,9 @@ func topicScrapper() {
 
 	for i := 1; i < len(metrics); i++ {
 		items := strings.Split(metrics[i].Metrics, "\n")
-		fmt.Printf("exec_Kafka_Manager_Topic_Metrics,attribute=none,Topic=%v EPS=%v,Offset=%v,Partitions=%v,Brokers_Count=%v,Broker_Skew_%%=%v,Brokers_Leader_Skew_%%=%v,Under_Replicated_%%=%v,Replicas=%v,Brokers_Spread_%%=%v\n", strings.TrimSpace(items[1]), strings.TrimSpace(items[11]), strings.TrimSpace(items[12]), strings.TrimSpace(items[2]), strings.TrimSpace(items[3]), strings.TrimSpace(items[5]), strings.TrimSpace(items[6]), strings.TrimSpace(items[8]), strings.TrimSpace(items[7]), strings.TrimSpace(items[4]))
+		OffsetSpace := strings.TrimSpace(items[12])
+		OffsetSplit := strings.ReplaceAll(OffsetSpace, ",", "")
+		fmt.Printf("exec_Kafka_Manager_Topic_Metrics,attribute=none,Topic=%v EPS=%v,Offset=%v,Partitions=%v,Brokers_Count=%v,Broker_Skew_%%=%v,Brokers_Leader_Skew_%%=%v,Under_Replicated_%%=%v,Replicas=%v,Brokers_Spread_%%=%v\n", strings.TrimSpace(items[1]), strings.TrimSpace(items[11]), OffsetSplit, strings.TrimSpace(items[2]), strings.TrimSpace(items[3]), strings.TrimSpace(items[5]), strings.TrimSpace(items[6]), strings.TrimSpace(items[8]), strings.TrimSpace(items[7]), strings.TrimSpace(items[4]))
 	}
 
 	// To test individual topic metrics
