@@ -61,7 +61,7 @@ func consumerScrapper() {
 			// iterate over the consumerStruct to get the individual metrics
 			for c2 := 0; c2 < len(consumerStruct); c2++ {
 				items := strings.Split(consumerStruct[c2].consumerMetrics, "\n")
-				fmt.Printf("exec_Kafka_Manager_Consumer_Metrics,attribute=none,Consumer=%v --consuming--from--%v,Type=KF Coverage_%%=%v ,LAG=%v\n", consumerName["tempConsumer"], strings.TrimSpace(items[0]), strings.TrimSpace(items[1]), strings.TrimSpace(items[2]))
+				fmt.Printf("exec_Kafka_Manager_Consumer_Metrics,attribute=none,Consumer=%v--consuming--from--%v,Type=KF Coverage_%%=%v ,LAG=%v\n", consumerName["tempConsumer"], strings.TrimSpace(items[0]), strings.TrimSpace(items[1]), strings.TrimSpace(items[2]))
 				consumerStruct = []Consumers{} // Must clean the struct, otherwise it will duplicate entries
 			}
 
