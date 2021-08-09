@@ -62,15 +62,15 @@ pipeline {
             	
   stages {
 
-	stage('Check Ansible Inventory File') {
-      steps {
-        sh '''
-		   echo -e "[master]\\n\\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
-		   echo ${Master} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[master\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
-		   echo ${Workers} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[workers\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
-		   '''
-      }
-    }
+		stage('Check Ansible Inventory File') {
+			steps {
+				sh '''
+				echo -e "[master]\\n\\n[workers]" >  ${WORKSPACE}/inventory.ini | cat ${WORKSPACE}/inventory.ini
+				echo ${Master} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[master\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
+				echo ${Workers} | sed \'s/,/\\n/g\' | while read line ; do sed -i \'/\\[workers\\]/a \\\'"${line}"\'\' ${WORKSPACE}/inventory.ini ; done
+				'''
+			}
+		}
 
     stage('Ansible Role Task') {
       steps {
@@ -78,7 +78,7 @@ pipeline {
         playbook: '${WORKSPACE}/th_cluster_main_for_jenkins.yml',
         inventory: '${WORKSPACE}/inventory.ini',
         colorized: true,
-		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"',
+		extras: '--ssh-extra-args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -v',
         extraVars: [
 		    th_version: '${TH_Version}',
 			proxyk: 'http://web-proxy.am.softwaregrp.net:8080',
