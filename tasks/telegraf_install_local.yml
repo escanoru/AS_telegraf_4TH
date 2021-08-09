@@ -1,4 +1,7 @@
 ---
 - name: "Installing Telegraf"
   shell: "rpm -Uvh --force /opt/TH_SCRAPPER/telegraf-*.rpm" 
-#  shell: "yum localinstall -y /tmp/ansible_temp_files/telegraf-*.rpm" 
+#  shell: "yum localinstall -y /tmp/ansible_temp_files/telegraf-*.rpm"
+
+- name: "Removing Telegraf RPM"
+  shell: "rm -rf /opt/TH_SCRAPPER/telegraf-*.rpm" 
