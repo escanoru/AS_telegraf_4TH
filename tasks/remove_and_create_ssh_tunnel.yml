@@ -23,7 +23,7 @@
 - name: "Running task on all nodes, Copying kafka_topic_size.sh"
   copy:
     src: kafka_topic_size.sh
-    dest: /opt/kafka_topic_size.sh
+    dest: /opt/TH_SCRAPPER/kafka_topic_size.sh
     owner: telegraf
     group: telegraf
     mode: 0775
