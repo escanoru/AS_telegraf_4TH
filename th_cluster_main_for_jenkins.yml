@@ -2,6 +2,8 @@
 - hosts: all
   remote_user: root
   gather_facts: false
+  vars:
+    ansible_remote_tmp: /opt/
   tasks:
   - name: Running tasks/main_all.yaml instead of 'main'
     import_role:
