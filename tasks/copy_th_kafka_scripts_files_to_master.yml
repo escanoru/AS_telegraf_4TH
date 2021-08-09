@@ -19,12 +19,12 @@
     mode: 0775 
     backup: yes
   when:
-    th_version == "3.4" and inventory_hostname in groups['master']  
+    th_version == "3.4" and inventory_hostname in groups['master']
 
 - name: "Running task on Master...Copying kafka-manager-metrics-3.5.sh"
   copy: 
     src: kafka-manager-metrics-3.5.sh
-    dest: /opt/kafka-manager-metrics.sh 
+    dest: /opt/TH_SCRAPPER/kafka-manager-metrics.sh 
     owner: telegraf 
     group: telegraf 
     mode: 0775 
@@ -35,7 +35,7 @@
 - name: "Running task on Master...Copying th-rsp-metrics-request.sh"
   copy: 
     src: th-rsp-metrics-request.sh 
-    dest: /opt/th-rsp-metrics-request.sh 
+    dest: /opt/TH_SCRAPPER/th-rsp-metrics-request.sh 
     owner: telegraf 
     group: telegraf 
     mode: 0775 
@@ -46,7 +46,7 @@
 - name: "Running task on Master...Copying th_kafka_rsp_metrics.json"
   copy: 
     src: th_kafka_rsp_metrics.json 
-    dest: /opt/th_kafka_rsp_metrics.json 
+    dest: /opt/TH_SCRAPPER/th_kafka_rsp_metrics.json 
     owner: telegraf
     group: telegraf 
     mode: 0775 
@@ -57,7 +57,7 @@
 - name: "Running task on Master...Copying th-brokers_metrics.sh"
   copy: 
     src: th-brokers_metrics.sh 
-    dest: /opt/th-brokers_metrics.sh 
+    dest: /opt/TH_SCRAPPER/th-brokers_metrics.sh 
     owner: telegraf 
     group: telegraf 
     mode: 0775 
@@ -68,7 +68,7 @@
 - name: "Running task on Master...Copying th_kafka_brokers_metrics.json"
   copy: 
     src: th_kafka_brokers_metrics.json 
-    dest: /opt/th_kafka_brokers_metrics.json 
+    dest: /opt/TH_SCRAPPER/th_kafka_brokers_metrics.json 
     owner: telegraf
     group: telegraf 
     mode: 0775 
@@ -79,7 +79,7 @@
 - name: "Running task on Master...Copying k8s-podus-resource-usage.sh"
   copy: 
     src: k8s-podus-resource-usage.sh
-    dest: /opt/k8s-podus-resource-usage.sh
+    dest: /opt/TH_SCRAPPER/k8s-podus-resource-usage.sh
     owner: telegraf
     group: telegraf 
     mode: 0775 
@@ -90,7 +90,7 @@
 - name: "Running task on Master...Copying k8s_get_pod.sh"
   copy: 
     src: k8s_get_pod.sh
-    dest: /opt/k8s_get_pod.sh
+    dest: /opt/TH_SCRAPPER/k8s_get_pod.sh
     owner: telegraf
     group: telegraf 
     mode: 0775 

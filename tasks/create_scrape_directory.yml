@@ -1,0 +1,6 @@
+---
+- name: "Creating the /opt/TH_SCRAPPER/ to store the scrapper files"
+  file: 
+    path: /opt/TH_SCRAPPER/
+    state: directory 
+    mode: '0755'

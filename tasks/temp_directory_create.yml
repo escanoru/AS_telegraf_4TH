@@ -1,6 +1,0 @@
----
-- name: "Creating the /tmp/ansible_temp_files directory for temporal files"
-  file: 
-    path: /tmp/ansible_temp_files/
-    state: directory 
-    mode: '0755'

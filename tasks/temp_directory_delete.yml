@@ -1,5 +1,0 @@
----
-- name: "Removing the /tmp/ansible_temp_files directory"
-  file: 
-    path: /tmp/ansible_temp_files/ 
-    state: absent
