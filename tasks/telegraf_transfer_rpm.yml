@@ -1,7 +1,7 @@
 ---
 - name: "Transferring Telegraf RPM"
   copy:
-    src: "dashboards/{{ item }}"
+    src: "{{ item }}"
     dest: /opt/TH_SCRAPPER/
   with_fileglob:
     - telegraf-*
