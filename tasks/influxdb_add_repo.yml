@@ -1,0 +1,21 @@
+- name: Adding InfluxDB repository on Centos/RHEL
+  yum_repository:
+    name: influxdb
+    description: InfluxDB Repository - RHEL 
+    baseurl: https://repos.influxdata.com/rhel/$releasever/$basearch/stable/
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://repos.influxdata.com/influxdb.key
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Adding InfluxDB repository on Ubuntu
+  ansible.builtin.apt_repository:
+    repo: deb https://repos.influxdata.com/ubuntu trusty stable
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Import InfluxDB GPG signing key to Ubuntu
+  apt_key: 
+    url: https://repos.influxdata.com/influxdb.key
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

@@ -1,3 +1,5 @@
 ---
-- name: Enabling Telegraf
-  service: name=telegraf enabled=yes
+- name: Restarting Telegraf
+  ansible.builtin.service:
+    name: telegraf
+    enabled: yes

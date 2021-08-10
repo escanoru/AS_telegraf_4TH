@@ -1,0 +1,5 @@
+---
+- name: Installing Telegraf
+  ansible.builtin.package:
+    name: telegraf
+    state: latest
