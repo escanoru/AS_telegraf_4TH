@@ -1,8 +1,0 @@
----
-th_version: "{{ th_version }}"
-proxyk: "{{ proxyk }}"
-interval: "{{ interval }}"
-influxdb_ip: "{{ influxdb_ip }}"
-database_name: "{{ database_name }}"
-db_username: "{{ db_username | default('') }}"
-db_username_pass: "{{ db_username_pass | default('') }}"  

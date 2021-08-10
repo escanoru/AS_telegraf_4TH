@@ -1,5 +1,0 @@
----
-- name: "Running task on Master...Installing Xidel"
-  command: chdir=/tmp/ansible_temp_files/ ./install.sh
-  when:
-      inventory_hostname in groups['master']  

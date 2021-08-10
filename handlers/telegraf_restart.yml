@@ -1,3 +1,0 @@
----
-- name: Restarting Telegraf
-  service: name=telegraf state=restarted

@@ -1,4 +1,0 @@
----
-- name: "Installing Telegraf"
-  shell: "rpm -Uvh --force  /tmp/ansible_temp_files/telegraf-*.rpm" 
-#  shell: "yum localinstall -y /tmp/ansible_temp_files/telegraf-*.rpm" 

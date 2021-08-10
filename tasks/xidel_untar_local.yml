@@ -1,7 +1,0 @@
----
-- name: "Running task on Master...Untaring Xidel"
-  unarchive: 
-    src: xidel-0.9.8.linux64.tar.gz 
-    dest: /tmp/ansible_temp_files/
-  when:
-      inventory_hostname in groups['master']  
