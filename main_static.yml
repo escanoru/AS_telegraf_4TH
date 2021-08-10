@@ -1,7 +1,6 @@
 ---
 - hosts: all
   remote_user: root
-  gather_facts: false
   vars:
     th_version: "3.5"
     proxyk: "http://my_proxy.local:8185"
