@@ -4,7 +4,7 @@
 - import_tasks: telegraf_install.yml
 - import_tasks: telegraf_run_as_root.yml
 - import_tasks: daemon_reload.yml
-- import_tasks: transfer_kafka_scrapper.ymls
+- import_tasks: transfer_kafka_scrapper.yml
 - import_tasks: copy_th_kafka_scripts_files_to_master.yml
 - import_tasks: copy_conf_files_to_workers.yml
 - import_tasks: remove_and_create_ssh_tunnel.yml
