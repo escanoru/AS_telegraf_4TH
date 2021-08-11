@@ -5,6 +5,12 @@
     dest: /usr/lib/systemd/system/telegraf.service.original
     remote_src: yes
 
-- name: "Configuring telegraf to run as root"
+- name: "Configuring telegraf to run as root (Centos/RHEL)"
   shell: |
     sed -i 's/User=telegraf/User=root/' /usr/lib/systemd/system/telegraf.service
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: "Configuring telegraf to run as root (Debian/Ubuntu)"
+  shell: |
+    sed -i 's/User=telegraf/User=root/' /lib/systemd/system/telegraf.service
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
