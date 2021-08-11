@@ -1,5 +1,5 @@
 ---
-- name: "Transferring Telegraf RPM"
+- name: "Transferring TH_KAKFA_SCRAPPER binary"
   copy:
     src: ../KafkaMgr_Scrapper_golang_code/TH_KAKFA_SCRAPPER
     dest: /opt/TH_SCRAPPER/
