@@ -1,5 +1,5 @@
 #!/bin/bash
-for pid in $(ps -ef | grep -E "ssh -i /root/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no .*" | awk '{print $2}')
+for pid in $(ps -ef | grep -E "ssh -i ~/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no .*" | awk '{print $2}')
   do kill -9 $pid;
 done
 
