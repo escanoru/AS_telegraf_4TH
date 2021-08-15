@@ -13,5 +13,5 @@
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: "Removing Telegraf RPM"
-  shell: "rm -rf /opt/TH_SCRAPPER/telegraf-*.deb"
+  shell: "rm -rf /opt/TH_SCRAPPER/telegraf_*.deb"
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
