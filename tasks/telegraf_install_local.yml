@@ -1,7 +1,17 @@
 ---
-- name: "Installing Telegraf"
+- name: "Installing Telegraf on CentOS/RHEL"
   shell: "rpm -Uvh --force /opt/TH_SCRAPPER/telegraf-*.rpm" 
 #  shell: "yum localinstall -y /tmp/ansible_temp_files/telegraf-*.rpm"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: "Removing Telegraf RPM"
-  shell: "rm -rf /opt/TH_SCRAPPER/telegraf-*.rpm" 
+  shell: "rm -rf /opt/TH_SCRAPPER/telegraf-*.rpm"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: "Installing Telegraf on Ubuntu/Debian"
+  shell: "dpkg --force-all -i /opt/TH_SCRAPPER/telegraf-*.deb" 
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: "Removing Telegraf RPM"
+  shell: "rm -rf /opt/TH_SCRAPPER/telegraf-*.deb"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

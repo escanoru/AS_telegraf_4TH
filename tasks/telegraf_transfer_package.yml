@@ -1,0 +1,16 @@
+---
+- name: "Transferring Telegraf RPM for CentOS/RHEL"
+  copy:
+    src: "{{ item }}"
+    dest: /opt/TH_SCRAPPER/
+  with_fileglob:
+    - telegraf-*.rpm
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: "Transferring Telegraf .deb package for Ubuntu/Debian"
+  copy:
+    src: "{{ item }}"
+    dest: /opt/TH_SCRAPPER/
+  with_fileglob:
+    - telegraf-*.deb
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

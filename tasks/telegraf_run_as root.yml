@@ -1,10 +1,22 @@
 ---
-- name: Making a backup of /usr/lib/systemd/system/telegraf.service
+- name: "Making a backup of /usr/lib/systemd/system/telegraf.service (Centos/RHEL)"
   copy:
     src: /usr/lib/systemd/system/telegraf.service
     dest: /usr/lib/systemd/system/telegraf.service.original
     remote_src: yes
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'  
 
-- name: "Configuring telegraf to run as root"
-  shell: |
-    sed -i 's/User=telegraf/User=root/' /usr/lib/systemd/system/telegraf.service
+- name: "Configuring telegraf to run as root (Centos/RHEL)"
+  shell: "sed -i 's/User=telegraf/User=root/' /usr/lib/systemd/system/telegraf.service"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: "Making a backup of  /lib/systemd/system/telegraf.service (Debian/Ubuntu)"
+  copy:
+    src: /lib/systemd/system/telegraf.service
+    dest: /lib/systemd/system/telegraf.service.original
+    remote_src: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: "Configuring telegraf to run as root (Debian/Ubuntu)"
+  shell: "sed -i 's/User=telegraf/User=root/' /lib/systemd/system/telegraf.service"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
