@@ -3,7 +3,8 @@
   # do kill -9 $pid;
 # done
 
-for pid in $(ps -ef | grep -E "ssh -i ~/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no .*" | awk '{print $2}')
+# Exclusive for azure deployments where the username is azureuser
+for pid in $(ps -ef | grep -E "StrictHostKeyChecking=no -o PasswordAuthentication=no .*" | awk '{print $2}')
  do kill -9 $pid;
 done
 
