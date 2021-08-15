@@ -6,8 +6,12 @@
   failed_when: ignore_me.rc != 1 and ignore_me.rc != 0
 
 - name: "Running task on Master...Creating ssh tunel to reach the Kafka manager pod"
-  shell: kubectl port-forward -n $(kubectl get namespaces | cut -d ' ' -f 1 |  grep arcsight) deployment/th-kafka-manager 9001:9000 &
+  script: create_tunnel.sh
+  register: ignore_me
   when: inventory_hostname in groups['master']
+  failed_when: ignore_me.rc != 1 and ignore_me.rc != 0
+  # shell: kubectl port-forward -n $(kubectl get namespaces | cut -d ' ' -f 1 |  grep arcsight) deployment/th-kafka-manager 9001:9000 &
+  # when: inventory_hostname in groups['master']
 
 - name: "Running task on all nodes, Copying kafka_topic_size.sh"
   copy:
