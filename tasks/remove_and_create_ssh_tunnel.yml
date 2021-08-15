@@ -1,13 +1,13 @@
 ---
 - name: "Running task on Master...Removing previous ssh tunnel connecting to TH (If present)"
-  become: no
+  #become: no
   script: remove_tunnel.sh
   register: ignore_me
   when: inventory_hostname in groups['master']
   failed_when: ignore_me.rc != 1 and ignore_me.rc != 0
 
 - name: "Running task on Master...Creating ssh keys for target's localhost, needed for creating the ssh tunnel"
-  become: no
+  #become: no
   shell: 'yes | ssh-keygen -C localhost -f ~/.ssh/localhost_id_rsa -q -N "" ; cat ~/.ssh/localhost_id_rsa.pub  >> ~/.ssh/authorized_keys'
   when: inventory_hostname in groups['master']
 
@@ -18,7 +18,7 @@
 #   when: inventory_hostname in groups['master']
 
 - name: "Running task on Master...Creating ssh tunel to reach the Kafka manager pod"
-  become: no
+  #become: no
   shell: |
     ssh -i ~/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no -o PasswordAuthentication=no -f -N -L 9001:$(kubectl get service -n $(kubectl get namespaces | cut -d ' ' -f 1 |  grep arcsight) | grep th-kafkamgr-svc | awk '{print $3":"$5}' | grep -Eo "[0-9.:]+" | tail -1) "{{ ansible_ssh_user }}"@localhost
   when: inventory_hostname in groups['master']
