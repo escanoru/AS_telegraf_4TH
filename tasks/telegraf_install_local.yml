@@ -9,7 +9,7 @@
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: "Installing Telegraf on Ubuntu/Debian"
-  shell: "dpkg --force-all -i /opt/TH_SCRAPPER/telegraf-*.deb" 
+  shell: "dpkg --force-all -i /opt/TH_SCRAPPER/telegraf_*.deb" 
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: "Removing Telegraf RPM"
