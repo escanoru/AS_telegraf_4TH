@@ -12,5 +12,5 @@
     src: "{{ item }}"
     dest: /opt/TH_SCRAPPER/
   with_fileglob:
-    - telegraf-*.deb
+    - telegraf-.*.deb
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
