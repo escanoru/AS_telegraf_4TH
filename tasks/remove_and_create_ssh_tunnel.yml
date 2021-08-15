@@ -9,7 +9,8 @@
 - name: "Running task on Master...Creating ssh tunel to reach the Kafka manager pod"
   become: no
   shell: |
-    ssh -i ~/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no -o PasswordAuthentication=no -f -N -L 9001:$(kubectl get service -n $(kubectl get namespaces | cut -d ' ' -f 1 |  grep arcsight) | grep th-kafkamgr-svc | awk '{print $3":"$5}' | grep -Eo "[0-9.:]+" | tail -1) "{{ ansible_ssh_user }}"@localhost
+    kubectl port-forward -n $(kubectl get namespaces | cut -d ' ' -f 1 |  grep arcsight) deployment/th-kafka-manager 9001:9000 &
+  #   ssh -i ~/.ssh/localhost_id_rsa -o StrictHostKeyChecking=no -o PasswordAuthentication=no -f -N -L 9001:$(kubectl get service -n $(kubectl get namespaces | cut -d ' ' -f 1 |  grep arcsight) | grep th-kafkamgr-svc | awk '{print $3":"$5}' | grep -Eo "[0-9.:]+" | tail -1) "{{ ansible_ssh_user }}"@localhost
   when: inventory_hostname in groups['master']
 
 - name: "Running task on all nodes, Copying kafka_topic_size.sh"
