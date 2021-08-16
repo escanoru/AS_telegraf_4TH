@@ -1,0 +1,18 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: false
+  vars:
+    th_version: "3.5"
+    proxyk: "http://my_proxy.local:8185"
+    interval: "10"
+    influxdb_ip: "127.0.0.1"
+    database_name: "telegraf"
+    db_username: ""
+    db_username_pass: ""
+
+  tasks:
+  - name: Running tasks/ssh_tunnel.yaml instead of 'main'
+    import_role:
+      name: ../
+      tasks_from: ssh_tunnel.yaml
